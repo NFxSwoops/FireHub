@@ -1,0 +1,111 @@
+{
+  "department": {
+    "name": "Pemberton Township",
+    "district": "District 18",
+    "icon": ""
+  },
+
+  "categories": [
+    {
+      "name": "Apparatus",
+      "icon": "",
+      "items": [
+        {
+          "title": "",
+          "icon": "",
+          "link": ""
+        },
+        {
+          "title": "",
+          "icon": "",
+          "link": ""
+        }
+      ]
+    },
+
+    {
+      "name": "SCBA",
+      "icon": "",
+      "items": [
+        {
+          "title": "Usage Form",
+          "icon": "",
+          "link": "https://form.jotform.com/221275272951052"
+        },
+        {
+          "title": "",
+          "icon": "",
+          "link": ""
+        }
+      ]
+    },
+
+    {
+      "name": "Duty Crew",
+      "icon": "",
+      "items": [
+        {
+          "title": "Grant Duty Crew",
+          "icon": "",
+          "link": ""
+        },
+        {
+          "title": "",
+          "icon": "",
+          "link": ""
+        }
+      ]
+    },
+
+    {
+      "name": "Tools",
+      "icon": "",
+      "items": [
+        {
+          "title": "",
+          "icon": "",
+          "link": ""
+        },
+        {
+          "title": "",
+          "icon": "",
+          "link": ""
+        }
+      ]
+    },
+
+    {
+      "name": "Training",
+      "icon": "",
+      "items": [
+        {
+          "title": "",
+          "icon": "",
+          "link": ""
+        },
+        {
+          "title": "",
+          "icon": "",
+          "link": ""
+        }
+      ]
+    },
+
+    {
+      "name": "Membership",
+      "icon": "",
+      "items": [
+        {
+          "title": "",
+          "icon": "",
+          "link": ""
+        },
+        {
+          "title": "",
+          "icon": "",
+          "link": ""
+        }
+      ]
+    }
+  ]
+}
