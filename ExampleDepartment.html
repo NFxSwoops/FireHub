@@ -1,1 +1,636 @@
-program
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FireHub</title>
+
+    <style>
+        :root {
+            --red: #b30000;
+            --dark-red: #7a0000;
+            --black: #111111;
+            --dark-gray: #1c1c1c;
+            --gray: #2a2a2a;
+            --light-gray: #eeeeee;
+            --white: #ffffff;
+            --yellow: #ffd400;
+
+            --radius-large: 24px;
+            --radius-medium: 18px;
+            --radius-small: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            width: 100%;
+            background: var(--red);
+            border-bottom: 5px solid var(--yellow);
+            padding: 20px;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .department-icon {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+            border-radius: var(--radius-small);
+            background: var(--white);
+            padding: 5px;
+        }
+
+        .department-info {
+            flex: 1;
+        }
+
+        .department-name {
+            font-size: clamp(1.5rem, 4vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .department-district {
+            margin-top: 6px;
+            font-size: 1rem;
+            color: var(--yellow);
+            font-weight: 700;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px 20px 50px;
+        }
+
+        .page-title {
+            margin-bottom: 25px;
+            font-size: clamp(1.7rem, 4vw, 2.3rem);
+            font-weight: 800;
+        }
+
+        /* =========================
+           CATEGORY GRID
+        ========================= */
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .category-button {
+            min-height: 150px;
+            border: 2px solid var(--red);
+            border-radius: var(--radius-large);
+            background: var(--dark-gray);
+            color: var(--white);
+            cursor: pointer;
+            padding: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 1.3rem;
+            font-weight: 800;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .category-button:hover {
+            background: var(--red);
+            border-color: var(--yellow);
+            transform: translateY(-3px);
+        }
+
+        .category-button:active {
+            transform: scale(0.97);
+        }
+
+        /* =========================
+           RESOURCE VIEW
+        ========================= */
+
+        .resource-view {
+            display: none;
+        }
+
+        .resource-view.active {
+            display: block;
+        }
+
+        .category-view-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .category-view-title h2 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+        }
+
+        .back-button {
+            border: none;
+            border-radius: 12px;
+            background: var(--yellow);
+            color: var(--black);
+            padding: 10px 16px;
+            font-size: 0.95rem;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: var(--white);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .resource-card {
+            text-decoration: none;
+            color: var(--white);
+
+            background: var(--dark-gray);
+            border: 2px solid var(--gray);
+            border-radius: var(--radius-medium);
+
+            min-height: 150px;
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 12px;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .resource-card:hover {
+            background: var(--red);
+            border-color: var(--yellow);
+            transform: translateY(-3px);
+        }
+
+        .resource-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: var(--radius-small);
+        }
+
+        .resource-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        /* =========================
+           LOADING / ERROR
+        ========================= */
+
+        .status-message {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--light-gray);
+        }
+
+        .error-message {
+            border: 2px solid var(--red);
+            border-radius: var(--radius-medium);
+            background: var(--dark-gray);
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 16px;
+            }
+
+            .header-content {
+                gap: 12px;
+            }
+
+            .department-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            main {
+                padding: 25px 15px 40px;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .category-button {
+                min-height: 125px;
+                padding: 15px;
+                font-size: 1.05rem;
+            }
+
+            .resource-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .category-view-title {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-content">
+
+            <img
+                id="departmentIcon"
+                class="department-icon"
+                src=""
+                alt="Department Logo"
+            >
+
+            <div class="department-info">
+                <h1 id="departmentName" class="department-name">
+                    FireHub
+                </h1>
+
+                <p id="departmentDistrict" class="department-district">
+                    Loading...
+                </p>
+            </div>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- CATEGORY PAGE -->
+
+        <section id="categoryView">
+
+            <h2 class="page-title">
+                Department Resources
+            </h2>
+
+            <div id="categoryGrid" class="category-grid">
+                <div class="status-message">
+                    Loading resources...
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- RESOURCE PAGE -->
+
+        <section id="resourceView" class="resource-view">
+
+            <div class="category-view-title">
+
+                <button
+                    id="backButton"
+                    class="back-button"
+                    type="button"
+                >
+                    ← Back
+                </button>
+
+                <h2 id="categoryTitle"></h2>
+
+            </div>
+
+            <div id="resourceGrid" class="resource-grid"></div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        /* =========================================
+           DEPARTMENT CONFIGURATION
+        ========================================= */
+
+        const DATA_FILE = "INSERT JSON DIRECTORY";
+
+
+        /* =========================================
+           HTML ELEMENT REFERENCES
+        ========================================= */
+
+        const departmentName =
+            document.getElementById("departmentName");
+
+        const departmentDistrict =
+            document.getElementById("departmentDistrict");
+
+        const departmentIcon =
+            document.getElementById("departmentIcon");
+
+        const categoryGrid =
+            document.getElementById("categoryGrid");
+
+        const categoryView =
+            document.getElementById("categoryView");
+
+        const resourceView =
+            document.getElementById("resourceView");
+
+        const categoryTitle =
+            document.getElementById("categoryTitle");
+
+        const resourceGrid =
+            document.getElementById("resourceGrid");
+
+        const backButton =
+            document.getElementById("backButton");
+
+
+        /* =========================================
+           LOAD DEPARTMENT JSON
+        ========================================= */
+
+        async function loadDepartment() {
+
+            try {
+
+                const response = await fetch(DATA_FILE);
+
+                if (!response.ok) {
+                    throw new Error(
+                        `Unable to load ${DATA_FILE}`
+                    );
+                }
+
+                const data = await response.json();
+
+                initializeDepartment(data);
+
+            } catch (error) {
+
+                console.error(error);
+
+                categoryGrid.innerHTML = `
+                    <div class="error-message">
+                        Unable to load department information.
+                    </div>
+                `;
+
+                departmentDistrict.textContent =
+                    "Unable to load department data.";
+            }
+        }
+
+
+        /* =========================================
+           INITIALIZE DEPARTMENT
+        ========================================= */
+
+        function initializeDepartment(data) {
+
+            if (!data.department) {
+                throw new Error(
+                    "Department information is missing."
+                );
+            }
+
+            departmentName.textContent =
+                data.department.name || "FireHub";
+
+            departmentDistrict.textContent =
+                data.department.district
+                    ? `Fire District ${data.department.district}`
+                    : "";
+
+            departmentIcon.src =
+                data.department.icon || "";
+
+            document.title =
+                data.department.name || "FireHub";
+
+            createCategoryButtons(
+                data.categories || []
+            );
+        }
+
+
+        /* =========================================
+           CREATE CATEGORY BUTTONS
+        ========================================= */
+
+        function createCategoryButtons(categories) {
+
+            categoryGrid.innerHTML = "";
+
+            if (categories.length === 0) {
+
+                categoryGrid.innerHTML = `
+                    <div class="error-message">
+                        No categories are currently available.
+                    </div>
+                `;
+
+                return;
+            }
+
+            categories.forEach(category => {
+
+                const button =
+                    document.createElement("button");
+
+                button.type = "button";
+                button.className = "category-button";
+
+                button.textContent =
+                    category.name || "Unnamed Category";
+
+                button.addEventListener(
+                    "click",
+                    () => openCategory(category)
+                );
+
+                categoryGrid.appendChild(button);
+
+            });
+        }
+
+
+        /* =========================================
+           OPEN CATEGORY
+        ========================================= */
+
+        function openCategory(category) {
+
+            categoryTitle.textContent =
+                category.name || "Resources";
+
+            resourceGrid.innerHTML = "";
+
+            const items = category.items || [];
+
+            if (items.length === 0) {
+
+                resourceGrid.innerHTML = `
+                    <div class="error-message">
+                        No resources are currently available
+                        in this category.
+                    </div>
+                `;
+
+            } else {
+
+                items.forEach(item => {
+
+                    const resource =
+                        createResourceElement(item);
+
+                    resourceGrid.appendChild(resource);
+
+                });
+
+            }
+
+            categoryView.style.display = "none";
+            resourceView.classList.add("active");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+
+        /* =========================================
+           CREATE RESOURCE ELEMENT
+        ========================================= */
+
+        function createResourceElement(item) {
+
+            const link =
+                document.createElement("a");
+
+            link.className = "resource-card";
+
+            link.href =
+                item.link || "#";
+
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+
+            const icon =
+                document.createElement("img");
+
+            icon.className = "resource-icon";
+
+            icon.src =
+                item.icon || "";
+
+            icon.alt =
+                item.title || "Resource";
+
+            const title =
+                document.createElement("span");
+
+            title.className = "resource-title";
+
+            title.textContent =
+                item.title || "Untitled Resource";
+
+            link.appendChild(icon);
+            link.appendChild(title);
+
+            return link;
+        }
+
+
+        /* =========================================
+           BACK BUTTON
+        ========================================= */
+
+        backButton.addEventListener(
+            "click",
+            () => {
+
+                resourceView.classList.remove("active");
+
+                categoryView.style.display =
+                    "block";
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        /* =========================================
+           START FIREHUB
+        ========================================= */
+
+        loadDepartment();
+
+    </script>
+
+</body>
+</html>
