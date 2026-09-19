@@ -8,31 +8,31 @@
   "categories": [
     {
       "name": "Apparatus",
-      "icon": "",
+      "icon": "truck.png",
       "items": [
         {
           "title": "Vehicle Use Log",
-          "icon": "",
+          "icon": "truck.png",
           "link": "https://form.jotform.com/70057288305153"
         },
         {
-          "title": "Vehicle Repair Log",
-          "icon": "",
+          "title": "Vehicle Repair Form",
+          "icon": "checkform.png",
           "link": "https://form.jotform.com/52854211010137"
         },
         {
-          "title": "Apparatus Inspection Form",
-          "icon": "",
+          "title": "Apparatus Inspection Log",
+          "icon": "truck.png",
           "link": "https://form.jotform.com/223614747563158"
         },
         {
-          "title": "Marine Inspection Form",
-          "icon": "",
+          "title": "Marine Inspection Log",
+          "icon": "truck.png",
           "link": "https://form.jotform.com/61724610598157"
         },
         {
           "title": "Vehicle Damage Form",
-          "icon": "",
+          "icon": "checkform.png",
           "link": "https://form.jotform.com/250394900709055"
         }
       ]
@@ -40,90 +40,115 @@
 
     {
       "name": "SCBA",
-      "icon": "",
+      "icon": "checkform.png",
       "items": [
         {
           "title": "Usage Form",
-          "icon": "form.png",
+          "icon": "checkform.png",
           "link": "https://form.jotform.com/221275272951052"
         },
         {
-          "title": "",
-          "icon": "",
-          "link": ""
+          "title": "SCBA Repair Form",
+          "icon": "checkform.png",
+          "link": "https://form.jotform.com/60437518326153"
         }
       ]
     },
 
     {
       "name": "Duty Crew",
-      "icon": "",
+      "icon": "crew.png",
       "items": [
         {
           "title": "Grant Duty Crew Report",
-          "icon": "",
-          "link": ""
+          "icon": "crew.png",
+          "link": "https://form.jotform.com/92963672717167"
         },
         {
           "title": "Per Diem Duty Crew Report",
-          "icon": "",
-          "link": ""
+          "icon": "crew.png",
+          "link": "https://form.jotform.com/243484013828155"
         },
         {
           "title": "Backup Report",
-          "icon": "",
-          "link": ""
+          "icon": "checkform.png",
+          "link": "https://form.jotform.com/70057118177152"
+        },
+        {
+          "title": "Extra Credit Form",
+          "icon": "checkform.png",
+          "link": "https://form.jotform.com/260125605306043"
         }
       ]
     },
 
     {
       "name": "Tools",
-      "icon": "",
+      "icon": "saw.png",
       "items": [
         {
-          "title": "",
-          "icon": "",
-          "link": ""
+          "title": "Tool Inspection Log",
+          "icon": "saw.png",
+          "link": "https://form.jotform.com/230006693400141"
         },
         {
-          "title": "",
-          "icon": "",
-          "link": ""
+          "title": "Small Tools Repair Form",
+          "icon": "checkform.png",
+          "link": "https://form.jotform.com/63054469087160"
+        },
+        {
+          "title": "Non-Department PPE Request",
+          "icon": "checkform.png",
+          "link": "https://form.jotform.com/231576982268066"
         }
       ]
     },
 
     {
       "name": "Training",
-      "icon": "",
+      "icon": "training.png",
       "items": [
         {
-          "title": "",
-          "icon": "",
-          "link": ""
+          "title": "Request Outside Training Form",
+          "icon": "training.png",
+          "link": "https://form.jotform.com/53093854933160"
         },
         {
-          "title": "",
-          "icon": "",
-          "link": ""
+          "title": "Driver Training Log",
+          "icon": "truck.png",
+          "link": "https://form.jotform.com/80428766184162"
+        },
+        {
+          "title": "2026 Training Info",
+          "icon": "training.png",
+          "link": "https://docs.google.com/document/d/1wZHPrBa184MjaiW4ZeRslIH1YRexT5z9/edit?usp=sharing&ouid=104623487461715927157&rtpof=true&sd=true"
         }
       ]
     },
 
     {
       "name": "Membership",
-      "icon": "",
+      "icon": "crew.png",
       "items": [
         {
-          "title": "",
-          "icon": "",
-          "link": ""
+          "title": "Membership Info Form",
+          "icon": "checkform.png",
+          "link": "https://form.jotform.com/60345116692151"
         },
         {
-          "title": "",
-          "icon": "",
-          "link": ""
+          "title": "Clothing Order Form",
+          "icon": "checkform.png",
+          "link": "https://form.jotform.com/230976526444059"
+        },
+        {
+          "title": "Birthday Form",
+          "icon": "checkform.png",
+          "link": "https://form.jotform.com/250337503731046"
+        },
+        {
+          "title": "Rules and Regulations",
+          "icon": "checkform.png",
+          "link": "https://docs.google.com/document/d/1abW5eDkF9rH9ajP148p8Eivf-n0289vd/edit?usp=sharing&ouid=104623487461715927157&rtpof=true&sd=true"
         }
       ]
     }
