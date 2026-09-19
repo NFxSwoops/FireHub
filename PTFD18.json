@@ -1,7 +1,7 @@
 {
   "department": {
     "name": "Pemberton Township",
-    "district": "District 18",
+    "district": "18",
     "icon": ""
   },
 
@@ -29,7 +29,7 @@
       "items": [
         {
           "title": "Usage Form",
-          "icon": "",
+          "icon": "form.png",
           "link": "https://form.jotform.com/221275272951052"
         },
         {
@@ -45,12 +45,17 @@
       "icon": "",
       "items": [
         {
-          "title": "Grant Duty Crew",
+          "title": "Grant Duty Crew Report",
           "icon": "",
           "link": ""
         },
         {
-          "title": "",
+          "title": "Per Diem Duty Crew Report",
+          "icon": "",
+          "link": ""
+        },
+        {
+          "title": "Backup Report",
           "icon": "",
           "link": ""
         }
