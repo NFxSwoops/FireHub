@@ -11,15 +11,29 @@
       "icon": "",
       "items": [
         {
-          "title": "",
+          "title": "Vehicle Use Log",
           "icon": "",
-          "link": ""
+          "link": "https://form.jotform.com/70057288305153"
         },
         {
-          "title": "",
+          "title": "Vehicle Repair Log",
           "icon": "",
-          "link": ""
-        }
+          "link": "https://form.jotform.com/52854211010137"
+        },
+        {
+          "title": "Apparatus Inspection Form",
+          "icon": "",
+          "link": "https://form.jotform.com/223614747563158"
+        },
+        {
+          "title": "Marine Inspection Form",
+          "icon": "",
+          "link": "https://form.jotform.com/61724610598157"
+        },
+        {
+          "title": "Vehicle Damage Form",
+          "icon": "",
+          "link": "https://form.jotform.com/250394900709055"
       ]
     },
 
