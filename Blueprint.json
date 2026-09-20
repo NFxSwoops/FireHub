@@ -1,0 +1,81 @@
+{
+  "department": {
+    "name": "DEPARTMENT_NAME",
+    "district": "DISTRICT_NUMBER",
+    "icon": "DEPARTMENT_ICON"
+  },
+
+  "categories": [
+    {
+      "name": "CATEGORY1",
+      "icon": "",
+      "items": [
+        {
+          "title": "EXAMPLE RESOURCE",
+          "icon": "checkform.png",
+          "link": ""
+        }
+      ]
+    },
+
+    {
+      "name": "CATEGORY2",
+      "icon": "",
+      "items": [
+        {
+          "title": "EXAMPLE RESOURCE",
+          "icon": "saw.png",
+          "link": ""
+        }
+      ]
+    },
+
+    {
+      "name": "CATEGORY3",
+      "icon": "",
+      "items": [
+        {
+          "title": "EXAMPLE RESOURCE",
+          "icon": "crew.png",
+          "link": ""
+        }
+      ]
+    },
+
+    {
+      "name": "CATEGORY4",
+      "icon": "",
+      "items": [
+        {
+          "title": "",
+          "icon": "",
+          "link": ""
+        }
+      ]
+    },
+
+    {
+      "name": "CATEGORY5",
+      "icon": "",
+      "items": [
+        {
+          "title": "",
+          "icon": "",
+          "link": ""
+        }
+      ]
+    },
+
+    {
+      "name": "CATEGORY6",
+      "icon": "",
+      "items": [
+        {
+          "title": "",
+          "icon": "",
+          "link": ""
+        }
+      ]
+    }
+  ]
+}
